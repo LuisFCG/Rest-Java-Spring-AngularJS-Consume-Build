@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+<h4><p class="text-center">Listar JSON</p></h4>
+<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+     </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="registro in mostrarjson | orderBy:'+cedula'" class="bg-primary">
+      <td>{{registro.cedula}}</td>
+      <td>{{registro.nombre}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

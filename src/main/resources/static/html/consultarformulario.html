@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+ 
+    <div class="container">
+   <h4><p class="text-center">Formulario Consultar / Eliminar</p></h4>
+    <form name="consultarFormulario" novalidate>
+    
+    <div class="form-group row">
+    <label for="forcedula" class="col-lg-1 col-form-label">Identificación</label>
+   	<div class="col-lg-2">
+    	<input class="form-control" type="number" id="cedula" name="cedula" placeholder="Ingrese cedula"
+    	ng-model="formulario.cedula" ng-pattern="patternValidaSoloNumeros" ng-required="requeridoCedula"
+    	ng-minlength="5" ng-maxlength="8">
+    	</div>
+    <div class="col-lg-4">	
+    <h6><small class="text-danger" ng-show="consultarFormulario.cedula.$error.pattern">
+    Debe ingresar solo números
+    </small></h6>
+    <h6><small class="text-danger" ng-show="consultarFormulario.cedula.$error.maxlength">
+    Debe ingresar máximo 8 digitos
+    </small></h6>
+    <h6><small class="text-danger" ng-show="consultarFormulario.cedula.$error.minlength">
+    Debe ingresar mínimo 5 digitos
+    </small></h6>
+    </div>
+    <div class="invisible">
+      <input type="id" class="form-control" id="inputId" placeholder="id"
+      ng-model="formulario.id" >
+    </div>
+  </div>
+   
+   <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputNombre">NOMBRE</label>
+      <input type="text" class="form-control" id="inputNombre"
+      ng-model="formulario.nombre" disabled>
+    </div>
+   </div>
+  <button type="submit" class="btn btn-primary" ng-click="f_enviarFormulario()" 
+  ng-disabled="consultarFormulario.$invalid">CONSULTAR</button>
+  <button type="submit" class="btn btn-danger" ng-click="f_eliminar()"
+  ng-disabled="consultarFormulario.$invalid||formulario.nombre==false">ELIMINAR</button>
+  </form>
+ </div>
+</body>
+</html>

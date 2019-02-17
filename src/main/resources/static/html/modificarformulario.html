@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+ 
+    <div class="container">
+    <h4><p class="text-center">Formulario Modificar</p></h4>
+    <form name="modificarFormulario" novalidate>
+    
+    <div class="form-group row">
+    <label for="forcedula" class="col-lg-1 col-form-label">Identificación</label>
+   	<div class="col-lg-2">
+    	<input class="form-control" type="number" id="cedula" name="cedula" placeholder="Ingrese cedula"
+    	ng-model="formulario.cedula" ng-pattern="patternValidaSoloNumeros" ng-required="requeridoCedula"
+    	ng-minlength="5" ng-maxlength="8">
+    	</div>
+        <div class="col-lg-4">	
+    <h6><small class="text-danger" ng-show="modificarFormulario.cedula.$error.pattern">
+    Debe ingresar solo números
+    </small></h6>
+    <h6><small class="text-danger" ng-show="modificarFormulario.cedula.$error.maxlength">
+    Debe ingresar máximo 8 digitos
+    </small></h6>
+    <h6><small class="text-danger" ng-show="modificarFormulario.cedula.$error.minlength">
+    Debe ingresar mínimo 5 digitos
+    </small></h6>
+    </div>
+    <div class="invisible">
+      <input type="id" class="form-control" id="inputId" placeholder="id"
+      ng-model="formulario.id" >
+    </div>
+  </div>
+    
+   <div class="form-group row">
+    <label for="fornombre" class="col-lg-1 col-form-label">Nombre</label>
+   	<div class="col-lg-4">
+    	<input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre"
+    	ng-model="formulario.nombre" ng-pattern="patternValidaSoloLetras" ng-disabled="requeridoNombreModificar">
+    	</div>
+    <div class="col-lg-3">	
+    <small class="text-danger" ng-show="modificarFormulario.nombre.$error.pattern">
+    Debe ingresar solo letras
+    </small>
+    </div>
+  </div>
+   
+   
+  <button type="submit" class="btn btn-primary" ng-click="f_enviarFormulario()"
+  ng-disabled="modificarFormulario.$invalid" ng-disabled="activaConsultar">CONSULTAR</button>
+  <button type="submit" class="btn btn-danger" ng-click="f_modificarFormulario()"
+  ng-disabled="modificarFormulario.$invalid||formulario.nombre==false">MODIFICAR</button>
+</form>
+ </div>
+  
+</body>
+</html>
